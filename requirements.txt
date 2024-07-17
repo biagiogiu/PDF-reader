@@ -1,0 +1,6 @@
+pdfminer==20191125
+
+pip install google-cloud-storage
+gcloud auth application-default login
+
+pip install --upgrade google-cloud-texttospeech
