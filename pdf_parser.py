@@ -1,9 +1,7 @@
 from pdfminer.pdfparser import PDFParser
 from pdfminer.pdfdocument import PDFDocument
-from pdfminer.pdfpage import PDFPage
-from pdfminer.pdfpage import PDFTextExtractionNotAllowed
-from pdfminer.pdfinterp import PDFResourceManager
-from pdfminer.pdfinterp import PDFPageInterpreter
+from pdfminer.pdfpage import PDFPage, PDFTextExtractionNotAllowed
+from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from io import StringIO
 from pdfminer.layout import LAParams
 from pdfminer.converter import TextConverter
@@ -11,9 +9,10 @@ from pdfminer.converter import TextConverter
 
 class MyParser(object):
     def __init__(self, pdf):
-        ## Snipped adapted from Yusuke Shinyamas
-        # PDFMiner documentation
-        # Create the document model from the file
+        """The pdf file is read and parsed. Every line of the pdf
+        is stored in a list. The lines are then merged together
+        inti paragraphs considering their lenght and the final
+        punctuation"""
         parser = PDFParser(open(pdf, 'rb'))
         document = PDFDocument(parser)
         # Try to parse the document

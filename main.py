@@ -8,6 +8,9 @@ client = texttospeech.TextToSpeechClient()
 
 
 def read_pdf(window):
+    """It checks if the parser could read the PDF and
+    generates mp3 files through google text-to-speech API
+    of the first three sentences"""
     if window.folder_path == "":
         window.empty_path()
     else:

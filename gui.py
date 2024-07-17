@@ -5,6 +5,9 @@ from tkinter import filedialog
 
 
 class MyWindow(Tk):
+    """Creation of a simple window to upload the pdf file
+    The function for the button 'Read PDF' is specified
+    under main.py"""
     def __init__(self):
         super().__init__()
         self.title("PDF reader")
@@ -29,10 +32,9 @@ class MyWindow(Tk):
         folder_selected = filedialog.askopenfilename(filetypes=[("PDF", ".pdf")])
         self.folderPath.set(folder_selected)
 
-
     def empty_path(self):
         messagebox.showerror("Error", "Please select a PDF file")
 
-
     def wrong_pdf(self):
-        messagebox.showerror("Could not read file", "The selected PDF file could not be read, please try with another file")
+        messagebox.showerror("Could not read file",
+                             "The selected PDF file could not be read, please try with another file")
